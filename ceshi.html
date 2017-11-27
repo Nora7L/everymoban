@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+        var data = {
+            "Time": [
+            {
+                "time": "11.27",
+                "imgSrc": "../pinkblog/Naro/images/a1.JPG",
+                "breakfast": [
+                [
+                "蔬菜饼",
+                "烤红薯",
+                "over"
+                ]
+                ],
+                "lunch": [
+                [
+                "东北土豆炖豆角",
+                "蔬菜饼",
+                "over"
+                ]
+                ],
+                "dunner": [
+                [
+                "暂无",
+                "暂无",
+                "over"
+                ]
+                ],
+                "workout": [
+                [
+                "暂无",
+                "暂无",
+                "over"
+                ]
+                ]
+            }
+            ]
+        }
+        console.log(data);
+        $.each(data,function(i,val){
+            $.each(val,function(index,col){
+                alert(col.time);
+            });
+            alert(val);
+        });
+    </script>
+</body>
+</html>

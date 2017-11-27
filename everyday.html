@@ -9,12 +9,12 @@
 
 </head>
 <body>
-	<section class="everyday">
-		<div class="center">
-			<p class="time"><mark>time:</mark><span>2017.11.23<span></p>
+	<section class="everyday" id="box">
+		<div class="center" >
+			<p class="time"><mark>Time:</mark><span><!-- 2017.11.23 --><span></p>
 				<div class="breakfast moban">
 					<span><i class="iconfont icon-zao"></i></span>
-					<div class="left"><img src="../pinkblog/Naro/images/a1.JPG"></div>
+					<div class="left"><img src="" class="breakfastImg"></div>
 					<div class="right">
 						<i class="iconfont icon-zaocan"></i>
 						<p>aaaaaaaaaaaaaaaaa</p>
@@ -26,7 +26,7 @@
 				</div>
 				<div class="lunch moban">
 					<span><i class="iconfont icon-wu"></i></span>
-					<div class="left"><img src="../pinkblog/Naro/images/a1.JPG"></div>
+					<div class="left"><img src="" class="lunchImg"></div>
 					<div class="right">
 						<i class="iconfont icon-wucan1"></i>
 						<p>aaaaaaaaaaaaaaaaa</p>
@@ -38,7 +38,7 @@
 				</div>
 				<div class="dunner moban">
 					<span><i class="iconfont icon-wan"></i></span>
-					<div class="left"><img src="../pinkblog/Naro/images/a1.JPG"></div>
+					<div class="left"><img src="" class="dunnerImg"></div>
 					<div class="right">
 						<i class="iconfont icon-wancan"></i>
 						<p>aaaaaaaaaaaaaaaaa</p>
@@ -50,7 +50,7 @@
 				</div>
 				<div class="workout moban">
 					<span><i class="iconfont icon-yundong"></i></span>
-					<div class="left"><img src="../pinkblog/Naro/images/a1.JPG"></div>
+					<div class="left"><img src="" class="workoutImg"></div>
 					<div class="right">
 						<i class="iconfont icon-yundong1"></i>
 						<p>aaaaaaaaaaaaaaaaa</p>
@@ -66,6 +66,7 @@
 			</div>
 		</section>
 		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/data.json"></script>
 		<!-- <script src="js/index.js"></script> -->
 
 		<script type="text/javascript">
@@ -80,7 +81,36 @@
 
 				function init(){
 
-				}
+				};
+
+				$.ajax({
+					url:"js/data.json",
+					dataType: "json",
+					success: function(data){
+						$.each(data,function(i,val){
+								$('#box').find('.time>span').html(val.time);
+								$('#box').find('.breakfastImg').attr("src",val.breakfastImg);
+								$('#box').find('.lunchImg').attr("src",val.lunchImg);
+								$('#box').find('.dunnerImg').attr("src",val.dunnerImg);
+								$('#box').find('.workoutImg').attr("src",val.workoutImg);
+							$.each(val,function(index,col){
+								console.log(col[]);
+									// $.each(col,function(j,eat){
+									// 	console.log(eat.breakfast)
+									// 	// for (var i = 0; i < eat.breakfast.length; i++) {
+									// 	// 	console.log(eat.breakfast.length)
+									// 	// }
+									// });
+							});
+						});
+						// console.log(data)
+
+
+					},
+					error: function(data){
+						console.log(data)
+					}
+				});
 			});
 		</script>
 	</body>
