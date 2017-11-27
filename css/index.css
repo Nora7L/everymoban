@@ -73,8 +73,12 @@ img {
   .everyday .moban .right {
     height: 200px;
     position: absolute;
-    right: 60%;
+    left: 32%;
     top: 5%; }
+    .everyday .moban .right p {
+      height: 25px;
+      line-height: 20px;
+      border-bottom: 1px solid #ccc; }
 
 .iconfont {
   font-size: 25px;
